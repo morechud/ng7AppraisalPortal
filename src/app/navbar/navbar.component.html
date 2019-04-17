@@ -1,0 +1,43 @@
+<nav *ngIf="isAuthenticated$ | async">
+    <div class="nav-wrapper">
+        <a
+            routerLink="#!"
+            class="brand-logo right"
+        >
+            GCSAPpraisal
+        </a>
+        <ul class="left hide-on-med-and-down">
+            <li>
+                <a
+                    class="nav-item nav-link active"
+                    routerLink="/"
+                >
+                    Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-item nav-link active" routerLink="/newappraisal" *ngIf="isAuthenticated$ | async">
+                    New Appraisal Form
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-item nav-link active" routerLink="/appraisallist">
+                    Appraisal Records
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-item nav-link active" routerLink="/" (click)="logout()">
+                    Logout
+                </a>
+            </li>
+            <li>
+                    <a class="nav-item nav-link active" routerLink="/">
+                        Hello! {{loggedInStaffName}}
+                    </a>
+                </li>
+        </ul>
+    </div>
+</nav>

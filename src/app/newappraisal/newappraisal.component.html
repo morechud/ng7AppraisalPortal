@@ -1,0 +1,167 @@
+<div class="container">
+  <h2 class="title center" centered> Appraisal Form</h2>
+    <div class="row m12">
+        <label>
+            Your Staff Lists
+            <select class="browser-default" (change)="onChangeSelectedStaff($event.target.value)">
+              <option value="" selected> Select staff to appraise</option>
+                <option *ngFor="let staff of staffs; let i = index" value="{{i}}">{{staff.staffName}}    {{staff.staffId}}</option>
+            </select>
+        </label>
+    </div>
+    <form  [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" >
+<div class="row">
+    <div class="input-field col s6">
+        <input placeholder="staff ID" id="StaffId" type="text" class="validate" 
+        value="{{this.selectedStaff.staffId}}" disabled>
+        <label for="StaffId">Staff ID</label>
+      </div>
+
+      <div class="input-field col s6">
+          <input placeholder="staff name" id="StaffName" type="text" class="validate" 
+          value="{{this.selectedStaff.staffName}}" disabled>
+          <label for="StaffName">Staff Name</label>
+        </div>
+  </div>
+
+  <div class="row">
+      <div class="input-field col s6">
+          <input placeholder="Position" id="Position" type="text" class="validate" 
+          value="{{this.selectedStaff.position}}" disabled>
+          <label for="Position">Position</label>
+        </div>
+
+        <div class="input-field col s6">
+            <input placeholder="Department" id="Department" type="text" class="validate" 
+            value="{{this.selectedStaff.department}}" disabled>
+            <label for="Department">Department</label>
+          </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s12" id="Teamwork">
+            <select formControlName="Teamwork">
+                <option value disabled selected > Choose your option </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <label>Teamwork:</label>
+        </div>
+        <div class="input-field col s12">
+            <select formControlName="Punctuality">
+                <option
+                    value
+                    disabled
+                    selected
+                >
+                    Choose your option
+                </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <label>Punctuality:</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s12">
+            <select formControlName="Attendance">
+                <option
+                    value
+                    disabled
+                    selected
+                >
+                    Choose your option
+                </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <label>Attendance:</label>
+        </div>
+        <div class="input-field col s12">
+            <select formControlName="Neatness">
+                <option
+                    value
+                    disabled
+                    selected
+                >
+                    Choose your option
+                </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <label>Neatness:</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s12">
+            <select formControlName="Creativity">
+                <option
+                    value
+                    disabled
+                    selected
+                >
+                    Choose your option
+                </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <label>Creativity:</label>
+        </div>
+        <div class="input-field col s12">
+            <select formControlName="ProblemSolving">
+                <option
+                    value
+                    disabled
+                    selected
+                >
+                    Choose your option
+                </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <label>ProblemSolving:</label>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <textarea
+                id="additionalComment"
+                class="materialize-textarea"
+                formControlName="additionalComment"
+            ></textarea>
+            <label for="additionalComment">AdditionalComment:</label>
+        </div>
+    </div>
+    <div class="row">
+            <div class="input-field col s6">
+                    <input placeholder="FinalScore" formControlName="FinalScore" id="finalScore" type="text" class="validate" 
+                    value="{{FinalScoreResult()}}" disabled>
+                    <label for="finalScore">FInal Score</label>
+                  </div>
+    </div>
+    <div class='row'>
+        <button type="submit" [disabled]="!myForm.valid" class="btn btn-primary"> Submit </button>
+    </div>
+</form>
+</div>
